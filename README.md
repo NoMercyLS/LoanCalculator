@@ -1,6 +1,6 @@
-## LoanCalculator
+# LoanCalculator
 
-# Sergey Bulatnikov
+## *Sergey Bulatnikov*
 
 This is an application for calculating annuity payments on a loan for a certain period.
 
