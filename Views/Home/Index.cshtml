@@ -1,0 +1,76 @@
+﻿@{
+    ViewData["Title"] = "Loan Calculator";
+}
+
+<div class="container col-md-6 mx-auto ">
+    <h2 class="pt-4">Loan Calculator</h2>
+    <form class="p-0 mx-0 needs-validation" action="/Home/PostData" method="post" novalidate>
+        <div class="form-row mx-0 pt-4">
+            <label for="amount">Сумма займа</label>
+            <input type="number" class="form-control" name="amount" id="amount" min="100.00" max="500000000.00" placeholder="Введите сумму займа" required>
+            <div class="valid-feedback">
+                Окей!
+            </div>
+            <div class="invalid-feedback">
+                Введите верное значение
+            </div>
+        </div>
+        <div class="form-row checkbox mx-0 pt-4" form-check">
+            <label class="form-check-label mx-4" for="Conditions">Взять кредит по дням</label>
+            <input type="checkbox" class="form-check-input mx-0" value="true" name="conditions" id="conditions">
+        </div>
+        <div class="btn-group btn-group-toggle pt-4" id="dailyPayment" data-toggle="buttons">
+            <label class="btn btn-secondary">
+                <input type="radio" name="option1" id="option1" value="true" autocomplete="off"> Платить каждые 15 дней
+            </label>
+            <label class="btn btn-secondary">
+                <input type="radio" name="option2" id="option2" value="true" autocomplete="off"> Платить каждые 10 дней
+            </label>
+            <div class="valid-feedback">
+                Окей!
+            </div>
+            <div class="invalid-feedback">
+                ВЫберете сроки по оплате кредита
+            </div>
+        </div>
+        <div class="form-row mx-0 pt-4">
+            <label for="Term">Срок займа</label>
+            <input type="number" class="form-control" name="term" id="Term" min="1" max="730" placeholder="Введите срок займа" required>
+            <div class="valid-feedback">
+                Окей!
+            </div>
+            <div class="invalid-feedback">
+                Введите верное значение
+            </div>
+        </div>
+        <div class="form-group mx-0 pt-4">
+            <label for="InterestRate">Ставка, %</label>
+            <input type="number" class="form-control" min="1.00" max="100.00" value="14" name="rate" id="InterestRate">
+            <div class="valid-feedback">
+                Окей!
+            </div>
+            <div class="invalid-feedback">
+                Введите верное значение
+            </div>
+        </div>
+        <button type="submit" class="btn btn-outline-light mx-0 my-4">Рассчитать</button>
+    </form>
+</div>
+
+<script>
+    (function () {
+        'use strict';
+        window.addEventListener('load', function () {
+            var forms = document.getElementsByClassName('needs-validation');
+            var validation = Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+</script>
